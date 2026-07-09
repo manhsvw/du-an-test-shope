@@ -78,6 +78,10 @@ html {
     animation: faceIn linear 0.1s
 }
 
+.modal[hidden] {
+    display: none;
+}
+
 .modal__overlay {
     position: absolute;
     width: 100%;
