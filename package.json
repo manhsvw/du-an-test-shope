@@ -1,0 +1,14 @@
+{
+  "name": "shoppe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shopee clone tinh voi backend dang ky/dang nhap va gio hang local",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0"
+  }
+}

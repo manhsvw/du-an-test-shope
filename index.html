@@ -99,9 +99,9 @@
                     </li>
                     <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separeta js-open-modal" data-auth-mode="register" tabindex="0" role="button">Đăng ký</li>
                     <li class="header__navbar-item header__navbar-item--strong js-open-modal" data-auth-mode="login" tabindex="0" role="button">Đăng nhập</li>
-                     <li class="header__navbar-item header__navbar-user">
-                        <img src="" alt="" class="header__navbar-user-img">
-                        <span class="header__navbar-user-name">Anh Hung</span>
+                     <li class="header__navbar-item header__navbar-user" id="navbar-user" hidden>
+                        <img alt="" class="header__navbar-user-img">
+                        <span class="header__navbar-user-name" id="navbar-user-name"></span>
 
                         <ul class="header__navbar-user-menu">
                             <li class="header__navbar-user-item">
@@ -114,7 +114,7 @@
                                 <a href="">Đơn mua</a>
                             </li>
                             <li class="header__navbar-user-item header__navbar-user-item--separate">
-                                <a href="">Đăng xuất</a>
+                                <a href="" id="js-logout">Đăng xuất</a>
                             </li>
                         </ul>
                      </li>
@@ -168,132 +168,16 @@
                 <div class="header__cart">
                     <div class="header__cart-wrap">
                         <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
-                        <span class="header__cart-notice">6</span>
+                        <span class="header__cart-notice">0</span>
                         <!-- No cart: header__cart-list--no-cart -->
-                        <div class="header__cart-list ">
+                        <div class="header__cart-list header__cart-list--no-cart" id="cart-list">
                             <img src="./asset/img/no-cart.webp" alt="" class="header__cart-no-cart-img">
                             <p class="header__cart-list-no-cart-msg">
                                 Chưa có sản phẩm
                             </p>
 
                             <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
-                            <ul class="header__cart-list-item">
-                                <!-- cart item -->
-                                <li class="header__cart-item">
-                                    <img src="./asset/img/noi.png" alt="hình sp" class="header__cart-img">
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">mì thịt xào</h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">160.000đ</span>
-                                                <span class="header__cart-item-mltiply">x</span>
-                                                <span class="header__cart-item-qnt">2</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                                            <span class="header__cart-item-description">
-                                                Phân loại :Bạc
-                                            </span>
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="header__cart-item">
-                                    <img src="./asset/img/xe may.png" alt="hình sp" class="header__cart-img">
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">mì thịt xào</h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">160.000đ</span>
-                                                <span class="header__cart-item-mltiply">x</span>
-                                                <span class="header__cart-item-qnt">2</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                                            <span class="header__cart-item-description">
-                                                Phân loại :Bạc
-                                            </span>
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="header__cart-item">
-                                    <img src="./asset/img/sach.png" alt="hình sp" class="header__cart-img">
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">mì thịt xào</h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">160.000đ</span>
-                                                <span class="header__cart-item-mltiply">x</span>
-                                                <span class="header__cart-item-qnt">2</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                                            <span class="header__cart-item-description">
-                                                Phân loại :Bạc
-                                            </span>
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="header__cart-item">
-                                    <img src="./asset/img/noi.png" alt="hình sp" class="header__cart-img">
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">bộ nồi đa năng thích hợp làm mọi thứ cho nhà bếp cao cấp, xuất xứ từ Nhật Bản</h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">160.000đ</span>
-                                                <span class="header__cart-item-mltiply">x</span>
-                                                <span class="header__cart-item-qnt">2</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                                            <span class="header__cart-item-description">
-                                                Phân loại :Bạc
-                                            </span>
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="header__cart-item">
-                                    <img src="./asset/img/xe may.png" alt="hình sp" class="header__cart-img">
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">hủ tiếu nam vang thịt xào</h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">160.000đ</span>
-                                                <span class="header__cart-item-mltiply">x</span>
-                                                <span class="header__cart-item-qnt">2</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                                            <span class="header__cart-item-description">
-                                                Phân loại :Bạc
-                                            </span>
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="header__cart-item">
-                                    <img src="./asset/img/sach.png" alt="hình sp" class="header__cart-img">
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">mì thịt xào</h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                <span class="header__cart-item-price">160.000đ</span>
-                                                <span class="header__cart-item-mltiply">x</span>
-                                                <span class="header__cart-item-qnt">2</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                                            <span class="header__cart-item-description">
-                                                Phân loại :Bạc
-                                            </span>
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                            <ul class="header__cart-list-item" id="cart-list-item"></ul>
                             <button class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</button>
                         </div>
                     </div>
@@ -410,7 +294,7 @@
                             <div class="row sm-gutter">
                                 <!-- Product item -->
                                 <div class="col l-2-4 m-4 c-6">
-                                    <a class="home-product-item" href="#">
+                                    <a class="home-product-item" href="#" data-product-id="p1">
                                         <div class="home-product-item__img" style="background-image: url(./asset/img/xe-may.png);"></div>
                                         <h4 class="home-product-item__name">xe máy chính hãng từ thương hiệu HonDa xuất xứ Nhật Bản</h4>
                                         <div class="home-product-item__price">
@@ -422,6 +306,9 @@
                                             <span class="home-product-item__like home-product-item__like--liked">
                                                 <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
                                                 <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                                            </span>
+                                            <span class="home-product-item__add-cart" title="Them vao gio hang">
+                                                <i class="fa-solid fa-cart-plus"></i>
                                             </span>
                                             <div class="home-product-item__rating">
                                                 <i class="home-product-item__star--gold fa-solid fa-star"></i>
@@ -449,7 +336,7 @@
                                     </a>
                                 </div>
                                 <div class="col l-2-4 m-4 c-6">
-                                    <a class="home-product-item" href="#">
+                                    <a class="home-product-item" href="#" data-product-id="p1">
                                         <div class="home-product-item__img" style="background-image: url(./asset/img/xe-may.png);"></div>
                                         <h4 class="home-product-item__name">xe máy chính hãng từ thương hiệu HonDa xuất xứ Nhật Bản</h4>
                                         <div class="home-product-item__price">
@@ -461,6 +348,9 @@
                                             <span class="home-product-item__like home-product-item__like--liked">
                                                 <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
                                                 <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                                            </span>
+                                            <span class="home-product-item__add-cart" title="Them vao gio hang">
+                                                <i class="fa-solid fa-cart-plus"></i>
                                             </span>
                                             <div class="home-product-item__rating">
                                                 <i class="home-product-item__star--gold fa-solid fa-star"></i>
@@ -488,7 +378,7 @@
                                     </a>
                                 </div>
                                 <div class="col l-2-4 m-4 c-6">
-                                    <a class="home-product-item" href="#">
+                                    <a class="home-product-item" href="#" data-product-id="p1">
                                         <div class="home-product-item__img" style="background-image: url(./asset/img/xe-may.png);"></div>
                                         <h4 class="home-product-item__name">xe máy chính hãng từ thương hiệu HonDa xuất xứ Nhật Bản</h4>
                                         <div class="home-product-item__price">
@@ -500,6 +390,9 @@
                                             <span class="home-product-item__like home-product-item__like--liked">
                                                 <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
                                                 <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                                            </span>
+                                            <span class="home-product-item__add-cart" title="Them vao gio hang">
+                                                <i class="fa-solid fa-cart-plus"></i>
                                             </span>
                                             <div class="home-product-item__rating">
                                                 <i class="home-product-item__star--gold fa-solid fa-star"></i>
@@ -527,7 +420,7 @@
                                     </a>
                                 </div>
                                 <div class="col l-2-4 m-4 c-6">
-                                    <a class="home-product-item" href="#">
+                                    <a class="home-product-item" href="#" data-product-id="p1">
                                         <div class="home-product-item__img" style="background-image: url(./asset/img/xe-may.png);"></div>
                                         <h4 class="home-product-item__name">xe máy chính hãng từ thương hiệu HonDa xuất xứ Nhật Bản</h4>
                                         <div class="home-product-item__price">
@@ -539,6 +432,9 @@
                                             <span class="home-product-item__like home-product-item__like--liked">
                                                 <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
                                                 <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                                            </span>
+                                            <span class="home-product-item__add-cart" title="Them vao gio hang">
+                                                <i class="fa-solid fa-cart-plus"></i>
                                             </span>
                                             <div class="home-product-item__rating">
                                                 <i class="home-product-item__star--gold fa-solid fa-star"></i>
@@ -566,7 +462,7 @@
                                     </a>
                                 </div>
                                 <div class="col l-2-4 m-4 c-6">
-                                    <a class="home-product-item" href="#">
+                                    <a class="home-product-item" href="#" data-product-id="p1">
                                         <div class="home-product-item__img" style="background-image: url(./asset/img/xe-may.png);"></div>
                                         <h4 class="home-product-item__name">xe máy chính hãng từ thương hiệu HonDa xuất xứ Nhật Bản</h4>
                                         <div class="home-product-item__price">
@@ -578,6 +474,9 @@
                                             <span class="home-product-item__like home-product-item__like--liked">
                                                 <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
                                                 <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                                            </span>
+                                            <span class="home-product-item__add-cart" title="Them vao gio hang">
+                                                <i class="fa-solid fa-cart-plus"></i>
                                             </span>
                                             <div class="home-product-item__rating">
                                                 <i class="home-product-item__star--gold fa-solid fa-star"></i>
@@ -605,7 +504,7 @@
                                     </a>
                                 </div>
                                 <div class="col l-2-4 m-4 c-6">
-                                    <a class="home-product-item" href="#">
+                                    <a class="home-product-item" href="#" data-product-id="p1">
                                         <div class="home-product-item__img" style="background-image: url(./asset/img/xe-may.png);"></div>
                                         <h4 class="home-product-item__name">xe máy chính hãng từ thương hiệu HonDa xuất xứ Nhật Bản</h4>
                                         <div class="home-product-item__price">
@@ -617,6 +516,9 @@
                                             <span class="home-product-item__like home-product-item__like--liked">
                                                 <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
                                                 <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                                            </span>
+                                            <span class="home-product-item__add-cart" title="Them vao gio hang">
+                                                <i class="fa-solid fa-cart-plus"></i>
                                             </span>
                                             <div class="home-product-item__rating">
                                                 <i class="home-product-item__star--gold fa-solid fa-star"></i>
@@ -644,7 +546,7 @@
                                     </a>
                                 </div>
                                 <div class="col l-2-4 m-4 c-6">
-                                    <a class="home-product-item" href="#">
+                                    <a class="home-product-item" href="#" data-product-id="p1">
                                         <div class="home-product-item__img" style="background-image: url(./asset/img/xe-may.png);"></div>
                                         <h4 class="home-product-item__name">xe máy chính hãng từ thương hiệu HonDa xuất xứ Nhật Bản</h4>
                                         <div class="home-product-item__price">
@@ -656,6 +558,9 @@
                                             <span class="home-product-item__like home-product-item__like--liked">
                                                 <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
                                                 <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                                            </span>
+                                            <span class="home-product-item__add-cart" title="Them vao gio hang">
+                                                <i class="fa-solid fa-cart-plus"></i>
                                             </span>
                                             <div class="home-product-item__rating">
                                                 <i class="home-product-item__star--gold fa-solid fa-star"></i>
@@ -683,7 +588,7 @@
                                     </a>
                                 </div>
                                 <div class="col l-2-4 m-4 c-6">
-                                    <a class="home-product-item" href="#">
+                                    <a class="home-product-item" href="#" data-product-id="p1">
                                         <div class="home-product-item__img" style="background-image: url(./asset/img/xe-may.png);"></div>
                                         <h4 class="home-product-item__name">xe máy chính hãng từ thương hiệu HonDa xuất xứ Nhật Bản</h4>
                                         <div class="home-product-item__price">
@@ -695,6 +600,9 @@
                                             <span class="home-product-item__like home-product-item__like--liked">
                                                 <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
                                                 <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                                            </span>
+                                            <span class="home-product-item__add-cart" title="Them vao gio hang">
+                                                <i class="fa-solid fa-cart-plus"></i>
                                             </span>
                                             <div class="home-product-item__rating">
                                                 <i class="home-product-item__star--gold fa-solid fa-star"></i>
@@ -722,7 +630,7 @@
                                     </a>
                                 </div>
                                 <div class="col l-2-4 m-4 c-6">
-                                    <a class="home-product-item" href="#">
+                                    <a class="home-product-item" href="#" data-product-id="p1">
                                         <div class="home-product-item__img" style="background-image: url(./asset/img/xe-may.png);"></div>
                                         <h4 class="home-product-item__name">xe máy chính hãng từ thương hiệu HonDa xuất xứ Nhật Bản</h4>
                                         <div class="home-product-item__price">
@@ -734,6 +642,9 @@
                                             <span class="home-product-item__like home-product-item__like--liked">
                                                 <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
                                                 <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                                            </span>
+                                            <span class="home-product-item__add-cart" title="Them vao gio hang">
+                                                <i class="fa-solid fa-cart-plus"></i>
                                             </span>
                                             <div class="home-product-item__rating">
                                                 <i class="home-product-item__star--gold fa-solid fa-star"></i>
@@ -761,7 +672,7 @@
                                     </a>
                                 </div>
                                 <div class="col l-2-4 m-4 c-6">
-                                    <a class="home-product-item" href="#">
+                                    <a class="home-product-item" href="#" data-product-id="p1">
                                         <div class="home-product-item__img" style="background-image: url(./asset/img/xe-may.png);"></div>
                                         <h4 class="home-product-item__name">xe máy chính hãng từ thương hiệu HonDa xuất xứ Nhật Bản</h4>
                                         <div class="home-product-item__price">
@@ -773,6 +684,9 @@
                                             <span class="home-product-item__like home-product-item__like--liked">
                                                 <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
                                                 <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                                            </span>
+                                            <span class="home-product-item__add-cart" title="Them vao gio hang">
+                                                <i class="fa-solid fa-cart-plus"></i>
                                             </span>
                                             <div class="home-product-item__rating">
                                                 <i class="home-product-item__star--gold fa-solid fa-star"></i>
@@ -948,13 +862,13 @@
                     </div>
                     <div class="auth-form__form">
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="email của bạn">
+                            <input type="text" class="auth-form__input" id="register-email" name="email" placeholder="email của bạn">
                         </div>
                         <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="mật khẩu của bạn">
+                            <input type="password" class="auth-form__input" id="register-password" name="password" placeholder="mật khẩu của bạn">
                         </div>
                         <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="nhập lại mật khẩu">
+                            <input type="password" class="auth-form__input" id="register-password-confirm" name="passwordConfirm" placeholder="nhập lại mật khẩu">
                         </div>
                     </div>
                     <div class="auth-form__aside">
@@ -964,9 +878,10 @@
                             <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
                         </p>
                     </div>
+                    <p class="auth-form__error" id="register-error" hidden></p>
                     <div class="auth-form__controls">
                         <button type="button" class="btn btn-back btn--normal" data-modal-close>TRỞ LẠI</button>
-                        <button type="button" class="btn btn--primary">ĐĂNG KÝ</button>
+                        <button type="button" class="btn btn--primary" id="register-submit">ĐĂNG KÝ</button>
                     </div>
                 </div>
                 <div class="auth-form__socials">
@@ -994,10 +909,10 @@
                     </div>
                     <div class="auth-form__form">
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="email của bạn">
+                            <input type="text" class="auth-form__input" id="login-email" name="email" placeholder="email của bạn">
                         </div>
                         <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="mật khẩu của bạn">
+                            <input type="password" class="auth-form__input" id="login-password" name="password" placeholder="mật khẩu của bạn">
                         </div>
                     </div>
                     <div class="auth-form__aside">
@@ -1007,9 +922,10 @@
                             <a href="" class="auth-form__help-link">Cần trợ giúp</a>
                         </div>
                     </div>
+                    <p class="auth-form__error" id="login-error" hidden></p>
                     <div class="auth-form__controls">
                         <button type="button" class="btn btn-back btn--normal" data-modal-close>TRỞ LẠI</button>
-                        <button type="button" class="btn btn--primary">ĐĂNG NHẬP</button>
+                        <button type="button" class="btn btn--primary" id="login-submit">ĐĂNG NHẬP</button>
                     </div>
                 </div>
                 <div class="auth-form__socials">

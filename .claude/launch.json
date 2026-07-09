@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "shoppe-static",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["-y", "serve", ".", "-l", "5500"],
-      "port": 5500
+      "name": "shoppe-server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "port": 3000
     }
   ]
 }

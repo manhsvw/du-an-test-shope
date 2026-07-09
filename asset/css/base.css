@@ -82,6 +82,10 @@ html {
     display: none;
 }
 
+.header__navbar-item[hidden] {
+    display: none;
+}
+
 .modal__overlay {
     position: absolute;
     width: 100%;

@@ -404,6 +404,14 @@
     color: var(--primary-color);
 }
 
+.auth-form__error {
+    margin: 12px 0 0;
+    padding: 0 12px;
+    font-size: 1.3rem;
+    color: #e02;
+    text-align: center;
+}
+
 .auth-form__controls {
     margin-top: 80px;
     display: flex;
@@ -1127,6 +1135,17 @@ i.home-product-item__like-icon-fill {
 
 .home-product-item__like--liked .home-product-item__like-icon-empty {
     display: none;
+}
+
+.home-product-item__add-cart {
+    font-size: 1.4rem;
+    color: #999;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.home-product-item__add-cart:hover {
+    color: var(--primary-color);
 }
 
 .home-product-item__rating {
