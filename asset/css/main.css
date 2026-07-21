@@ -3,7 +3,7 @@
 }
 .header {
     height: var(--header-height);
-    background-image: linear-gradient(0, #ee4d2d, #ff7337);
+    background-image: linear-gradient(180deg, #ff5c5c 0%, #b71c1c 100%);
 }
 
 .header__navbar {
@@ -495,7 +495,9 @@
 }
 
 .header__logo {
-    width: 200px;
+    width: auto;
+    display: flex;
+    align-items: center;
 }
 
 .header__logo-link {
@@ -506,7 +508,75 @@
 }
 
 .header__logo-img {
-    width: 150px;
+    width: auto;
+    height: 64px;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.header__mobile-account {
+    display: none;
+    align-items: center;
+    position: relative;
+    margin: 0 12px;
+}
+
+.header__mobile-account-icon {
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.header__mobile-account-user-toggle {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 2.2rem;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.header__mobile-account-user-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 160px;
+    padding-left: 0;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    list-style: none;
+    box-shadow: 0 1px 3px #666;
+}
+
+.header__mobile-account-user-menu--open {
+    display: block;
+}
+
+.header__mobile-account-user-name {
+    display: block;
+    padding: 8px 16px;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+.header__mobile-account-user-menu .js-logout {
+    display: block;
+    padding: 8px 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+.header__mobile-account-user-menu .js-logout:hover {
+    background-color: #fafafa;
 }
 
 .header__search {

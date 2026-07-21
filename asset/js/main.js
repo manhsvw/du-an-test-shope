@@ -58,16 +58,17 @@ function showAuthError(mode, message) {
 // Trạng thái đăng nhập trên navbar
 function setAuthState(user) {
     state.user = user;
-    const userBlock = $('#navbar-user');
+    const userBlocks = $$('.js-navbar-user');
+    const userNames = $$('.js-navbar-user-name');
     const guestActions = $$('.js-open-modal');
 
     if (user) {
-        userBlock.hidden = false;
-        $('#navbar-user-name').textContent = user.name;
+        userBlocks.forEach((el) => { el.hidden = false; });
+        userNames.forEach((el) => { el.textContent = user.name; });
         guestActions.forEach((el) => { el.hidden = true; });
     } else {
-        userBlock.hidden = true;
-        $('#navbar-user-name').textContent = '';
+        userBlocks.forEach((el) => { el.hidden = true; });
+        userNames.forEach((el) => { el.textContent = ''; });
         guestActions.forEach((el) => { el.hidden = false; });
     }
 }
@@ -256,11 +257,32 @@ async function initSession() {
         });
     });
 
-    $('#js-logout').addEventListener('click', async (e) => {
-        e.preventDefault();
-        await api('/api/auth/logout', { method: 'POST' });
-        setAuthState(null);
-        renderCart([]);
+    $$('.js-logout').forEach((el) => {
+        el.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await api('/api/auth/logout', { method: 'POST' });
+            setAuthState(null);
+            renderCart([]);
+        });
+    });
+})();
+
+// ===== Menu tài khoản trên mobile/tablet =====
+(function initMobileAccountMenu() {
+    $$('.js-mobile-account-toggle').forEach((toggle) => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            $('.js-mobile-account-menu', toggle.parentElement).classList.toggle('header__mobile-account-user-menu--open');
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        $$('.header__mobile-account-user-menu--open').forEach((menu) => {
+            if (!menu.contains(e.target) && !menu.previousElementSibling.contains(e.target)) {
+                menu.classList.remove('header__mobile-account-user-menu--open');
+            }
+        });
     });
 })();
 

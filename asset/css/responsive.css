@@ -36,6 +36,10 @@
     .mobile-category {
         display: block;
     }
+
+    .header__mobile-account {
+        display: flex;
+    }
 }
 
 /* Tablet */
@@ -48,9 +52,22 @@
     .hide-on-tablet {
         display: none;
     }
+    .header .grid.wide {
+        width: 100%;
+    }
+    .header-with-search {
+        margin: 0 4px;
+    }
     .header__cart {
-        width: 80px;
+        width: 60px;
         text-align: right;
+    }
+    .header__logo {
+        width: unset;
+    }
+    .header__logo-img {
+        width: auto;
+        height: 44px;
     }
 }
 
@@ -59,6 +76,31 @@
     :root {
         --header-height: 54px;
         --navbar-height: 0px;
+    }
+
+    .modal {
+        align-items: flex-start;
+    }
+
+    .auth-form {
+        width: calc(100vw - 32px);
+        max-width: 400px;
+    }
+
+    .auth-form__container {
+        padding: 0 20px;
+    }
+
+    .auth-form__controls {
+        margin-top: 32px;
+    }
+
+    .auth-form__socials {
+        padding: 16px 20px;
+    }
+
+    .auth-form__socials-title {
+        margin: 0 16px;
     }
 
     .hide-on-mobile {
@@ -122,7 +164,8 @@
     }
 
     .header__logo-img {
-        width: 110px;
+        width: auto;
+        height: 36px;
     }
 
     .footer__content {
