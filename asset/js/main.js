@@ -346,17 +346,6 @@ $$('.home-product-item__like').forEach((btn) => {
     });
 })();
 
-// ===== Danh mục bên trái =====
-(function initCategory() {
-    const items = $$('.category-item');
-    items.forEach((item) => {
-        $('.category-item__link', item).addEventListener('click', (e) => {
-            e.preventDefault();
-            setActive(items, item, 'category-item--active');
-        });
-    });
-})();
-
 // ===== Dropdown chọn "Giá" =====
 (function initSelectInput() {
     $$('.select-input').forEach((select) => {

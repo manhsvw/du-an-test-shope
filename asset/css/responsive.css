@@ -64,6 +64,7 @@
     }
     .header__logo {
         width: unset;
+        min-width: 0;
     }
     .header__logo-img {
         width: auto;
@@ -117,6 +118,7 @@
     .header__cart,
     .header__logo {
         width: unset; /*bỏ đi thuộc tính chiều ngang của class logo */
+        min-width: 0;
     }
     .header__search {
         position: fixed;
@@ -166,6 +168,16 @@
     .header__logo-img {
         width: auto;
         height: 36px;
+    }
+
+    .about,
+    .contact {
+        padding: 20px;
+    }
+
+    .contact__form-row {
+        flex-direction: column;
+        gap: 0;
     }
 
     .footer__content {

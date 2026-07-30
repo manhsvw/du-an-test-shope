@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - Công ty TNHH Saigon Ve Wong</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="./asset/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="./asset/css/grid.css">
+    <link rel="stylesheet" href="./asset/css/base.css">
+    <link rel="stylesheet" href="./asset/css/main.css">
+    <link rel="stylesheet" href="./asset/css/responsive.css">
+    <link rel="stylesheet" href="./asset/fonts/fontawesome-free-7.1.0-web/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+      <header class="header">
+        <div class="grid wide">
+            <nav class="header__navbar hide-on-mobile-tablet">
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separeta">
+                        Vào cửa hàng trên ứng dụng F8 shop
+                        <!-- header QR code -->
+                        <div class="header__qr">
+                            <img src="./asset/img/QR core.png" alt="QR code" class="header__qr-img">
+                            <div class="header__qr-apps">
+                                <img src="./asset/img/google_play.png" alt="google play" class="header__qr-download-img">
+                                <img src="./asset/img/apple store.png" alt="apple store" class="header__qr-download-img">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__navbar-item">
+                        <span class="header__navbar-title--no-pointer">kết nối</span>
+                        <a href="" class="header__navbar-icon-link">
+                            <i class="header__navbar-icon fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="" class="header__navbar-icon-link">
+                            <i class="header__navbar-icon fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item header__navbar-item--has-notify">
+                        <a href="" class="header__navbar-item-link">
+                            <i class="header__navbar-icon fa-regular fa-bell"></i>
+                            Thông báo
+                        </a>
+                        <div class="header__notify">
+                            <header class="header__notify-header">
+                                <h3>Thông báo mới nhận</h3>
+                            </header>
+                            <ul class="header__notify-list">
+                                <li class="header__notify-item header__notify-item--viewed">
+                                    <a href="" class="header__notify-link">
+                                        <img src="https://down-vn.img.susercontent.com/file/vn-50009109-7e80ab64bdc989f5c0862ed828f343a2" alt="" class="header__notify-img">
+                                        <div class="header__notify-info">
+                                            <span class="header__notify-name">Mỹ phẩm Ohui</span>
+                                            <span class="header__notify-description">mô tả mỹ phẩm</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li class="header__notify-item">
+                                    <a href="" class="header__notify-link">
+                                        <img src="https://down-vn.img.susercontent.com/file/vn-50009109-7e80ab64bdc989f5c0862ed828f343a2" alt="" class="header__notify-img">
+                                        <div class="header__notify-info">
+                                            <span class="header__notify-name">Mỹ phẩm Ohui</span>
+                                            <span class="header__notify-description">mô tả mỹ phẩm</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li class="header__notify-item">
+                                    <a href="" class="header__notify-link">
+                                        <img src="https://down-vn.img.susercontent.com/file/vn-50009109-7e80ab64bdc989f5c0862ed828f343a2" alt="" class="header__notify-img">
+                                        <div class="header__notify-info">
+                                            <span class="header__notify-name">Mỹ phẩm Ohui</span>
+                                            <span class="header__notify-description">mô tả mỹ phẩm</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="header__notify-footer">
+                                <a href="" class="header__notify-footer-btn">Xem tất cả</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__navbar-item">
+                        <a href="lien-he.html" class="header__navbar-item-link">
+                            <i class="header__navbar-icon fa-sharp fa-regular fa-circle-question"></i>
+                            Trợ giúp</a>
+                    </li>
+                    <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separeta js-open-modal" data-auth-mode="register" tabindex="0" role="button">Đăng ký</li>
+                    <li class="header__navbar-item header__navbar-item--strong js-open-modal" data-auth-mode="login" tabindex="0" role="button">Đăng nhập</li>
+                     <li class="header__navbar-item header__navbar-user js-navbar-user" hidden>
+                        <img alt="" class="header__navbar-user-img">
+                        <span class="header__navbar-user-name js-navbar-user-name"></span>
+
+                        <ul class="header__navbar-user-menu">
+                            <li class="header__navbar-user-item">
+                                <a href="">Tai khoản của tôi</a>
+                            </li>
+                            <li class="header__navbar-user-item">
+                                <a href="">Địa chỉ của tôi</a>
+                            </li>
+                            <li class="header__navbar-user-item">
+                                <a href="">Đơn mua</a>
+                            </li>
+                            <li class="header__navbar-user-item header__navbar-user-item--separate">
+                                <a href="" class="js-logout">Đăng xuất</a>
+                            </li>
+                        </ul>
+                     </li>
+                </ul>
+            </nav>
+
+            <!-- header-with-search -->
+            <div class="header-with-search">
+                <label for="mobile-search-checkbox" class="header__mobile-search">
+                    <i class="header__mobile-search-icon fa-solid fa-magnifying-glass"></i>
+                </label>
+                <div class="header__logo">
+                    <a href="" class="header__logo-link">
+                        <img src="./asset/img/aone-logo.png" alt="A-One" class="header__logo-img">
+                    </a>
+                </div>
+
+                <input type="checkbox" hidden id="mobile-search-checkbox" class="header__search-checkbox"> 
+                <!-- dùng thẻ inphut với type = checkbox để khi nhấn vào element thì hiện ra label tạo trước đó có id trong for="..."; 
+                    thuộc tính "hidden để ẩn đi element "  -->
+                <div class="header__search">
+                    <div class="header__search-input-wrap">
+                        <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm">
+                        
+                        <!-- Search history -->
+                        <div class="header__search-history">
+                            <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                            <ul class="header__search-history-list">
+                                <li class="header__search-history-item">
+                                    <a href="">mì ăn liền</a>
+                                </li>
+                                <li class="header__search-history-item">
+                                    <a href="">trái cây tươi</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header__search-select">
+                        <span class="header__search-select-label">Trong shop</span>
+                        <i class="header__search-select-icon fa-solid fa-angle-down"></i>
+                        <button class="header__search-btn">
+                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Account (mobile/tablet only) -->
+                <div class="header__mobile-account">
+                    <span class="header__mobile-account-icon js-open-modal" data-auth-mode="login" tabindex="0" role="button">
+                        <i class="fa-regular fa-user"></i>
+                    </span>
+                    <div class="header__mobile-account-user js-navbar-user" hidden>
+                        <button type="button" class="header__mobile-account-user-toggle js-mobile-account-toggle">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <ul class="header__mobile-account-user-menu js-mobile-account-menu">
+                            <li class="header__navbar-user-item">
+                                <span class="header__mobile-account-user-name js-navbar-user-name"></span>
+                            </li>
+                            <li class="header__navbar-user-item header__navbar-user-item--separate">
+                                <a href="" class="js-logout">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Cart layout -->
+                <div class="header__cart">
+                    <div class="header__cart-wrap">
+                        <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                        <span class="header__cart-notice">0</span>
+                        <!-- No cart: header__cart-list--no-cart -->
+                        <div class="header__cart-list header__cart-list--no-cart" id="cart-list">
+                            <img src="./asset/img/no-cart.webp" alt="" class="header__cart-no-cart-img">
+                            <p class="header__cart-list-no-cart-msg">
+                                Chưa có sản phẩm
+                            </p>
+
+                            <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                            <ul class="header__cart-list-item" id="cart-list-item"></ul>
+                            <button class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="header__sort-bar">
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link">Liên quan</a>
+            </li>
+            <li class="header__sort-item header__sort-item--active">
+                <a href="" class="header__sort-link">Mới nhất</a>
+            </li>
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link">bán chạy</a>
+            </li>
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link">Giá</a>
+            </li>
+        </ul>
+      </header>
+      <div class="app__container">
+            <div class="grid wide">
+                <div class="row app__content">
+                    <div class="col l-12 m-12 c-12">
+                        <div class="contact">
+                            <div class="contact__hero">
+                                <h1 class="contact__title">Liên hệ với chúng tôi</h1>
+                                <p class="contact__subtitle">Đội ngũ chăm sóc khách hàng luôn sẵn sàng lắng nghe và hỗ trợ bạn.</p>
+                            </div>
+
+                            <div class="row">
+                                <div class="col l-7 m-12 c-12">
+                                    <form class="contact__form" id="contact-form" novalidate>
+                                        <div class="contact__form-row">
+                                            <div class="contact__form-group">
+                                                <label class="contact__label" for="contact-name">Họ và tên</label>
+                                                <input type="text" id="contact-name" name="name" class="contact__input" placeholder="Nguyễn Văn A" required>
+                                            </div>
+                                            <div class="contact__form-group">
+                                                <label class="contact__label" for="contact-phone">Số điện thoại</label>
+                                                <input type="tel" id="contact-phone" name="phone" class="contact__input" placeholder="09xxxxxxxx" required>
+                                            </div>
+                                        </div>
+                                        <div class="contact__form-group">
+                                            <label class="contact__label" for="contact-email">Email</label>
+                                            <input type="email" id="contact-email" name="email" class="contact__input" placeholder="email@vidu.com" required>
+                                        </div>
+                                        <div class="contact__form-group">
+                                            <label class="contact__label" for="contact-subject">Chủ đề</label>
+                                            <select id="contact-subject" name="subject" class="contact__input">
+                                                <option>Hỗ trợ đơn hàng</option>
+                                                <option>Góp ý / phản hồi</option>
+                                                <option>Hợp tác kinh doanh</option>
+                                                <option>Khác</option>
+                                            </select>
+                                        </div>
+                                        <div class="contact__form-group">
+                                            <label class="contact__label" for="contact-message">Nội dung</label>
+                                            <textarea id="contact-message" name="message" class="contact__input contact__textarea" rows="5" placeholder="Nội dung bạn muốn gửi..." required></textarea>
+                                        </div>
+                                        <p class="contact__success" id="contact-success" hidden>Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.</p>
+                                        <button type="submit" class="btn btn--primary contact__submit">Gửi liên hệ</button>
+                                    </form>
+                                </div>
+                                <div class="col l-5 m-12 c-12">
+                                    <div class="contact__info">
+                                        <h3 class="contact__info-heading">Thông tin liên hệ</h3>
+                                        <ul class="contact__info-list">
+                                            <li><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận 1, TP. Hồ Chí Minh</li>
+                                            <li><i class="fa-solid fa-phone"></i> Hotline: 1900 1234</li>
+                                            <li><i class="fa-solid fa-envelope"></i> Email: cskh@saigonvewong.com</li>
+                                            <li><i class="fa-solid fa-clock"></i> 8:00 - 17:30, Thứ 2 - Thứ 7</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+      <footer class="footer">
+            <div class="grid wide footer__content">
+                <div class="row">
+                    <div class="col l-2-4 m-4 c-6">
+                        <h3 class="footer__heading">Chăm sóc khách hàng</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Trung tâm trợ giúp</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Shop Mall</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Hướng dẫn mua hàng</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="lien-he.html" class="footer-item__link">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col l-2-4 m-4 c-6">
+                        <h3 class="footer__heading">Giớ thiệu</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="gioi-thieu.html" class="footer-item__link">Giới thiệu</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Tuyển dụng</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Điều khoản</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col l-2-4 m-4 c-6">
+                        <h3 class="footer__heading">Theo dõi chúng tôi</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="footer-item__icon fa-brands fa-facebook"></i>
+                                    Facebook
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="footer-item__icon fa-brands fa-tiktok"></i>
+                                    Tiktok
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="footer-item__icon fa-brands fa-telegram"></i>
+                                    Telegram
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col l-2-4 m-4 c-6">
+                        <h3 class="footer__heading">Danh mục</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="mi-an-lien.html" class="footer-item__link">Mì ăn liền</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="hu-tieu-an-lien.html" class="footer-item__link">Hủ tiếu</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="bot-ngot.html" class="footer-item__link">Bột ngọt</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col l-2-4 m-4 c-12">
+                        <h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
+                        <div class="footer__download">
+                            <img src="/asset/img/QR core.png" alt="tải QR" class="footer__download-qr">
+                            <div class="footer__download-apps">
+                                <a href="" class="footer__download-app-link">
+                                    <img src="/asset/img/apple store.png" alt="app store" class="footer__download-app-img">
+                                </a>
+                                <a href="" class="footer__download-app-link">
+                                    <img src="/asset/img/google_play.png" alt="google_play" class="footer__download-app-img">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                    <div class="grid wide">
+                        <p class="footer__text">2026 - Bản quyền thuộc về <mark>hungktc</mark></p>
+                    </div>
+                </div>
+      </footer>
+    </div>
+
+    <!-- modal đăng nhập / đăng ký -->
+    <div class="modal" id="modal" hidden>
+        <div class="modal__overlay" data-modal-close></div>
+        <div class="modal__body">
+
+            <!-- register form -->
+            <div class="auth-form" data-auth-form="register">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng ký</h3>
+                        <span class="auth-form__switch-btn" data-auth-switch="login">Đăng nhập</span>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" id="register-email" name="email" placeholder="email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" id="register-password" name="password" placeholder="mật khẩu của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" id="register-password-confirm" name="passwordConfirm" placeholder="nhập lại mật khẩu">
+                        </div>
+                    </div>
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            Bằng việc đăng ký bạn đồng ý với Aone về
+                            <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                            <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
+                        </p>
+                    </div>
+                    <p class="auth-form__error" id="register-error" hidden></p>
+                    <div class="auth-form__controls">
+                        <button type="button" class="btn btn-back btn--normal" data-modal-close>TRỞ LẠI</button>
+                        <button type="button" class="btn btn--primary" id="register-submit">ĐĂNG KÝ</button>
+                    </div>
+                </div>
+                <div class="auth-form__socials">
+                    <a href="" class="auth-form__socials--facbook btn btn--with-icon btn--size-s">
+                        <i class="auth-form__socials-icon fa-brands fa-square-facebook"></i>
+                        <span class="auth-form__socials-title">
+                            Kết nối với Facebook
+                        </span>
+                    </a>
+                    <a href="" class="auth-form__socials--google btn btn--with-icon btn--size-s">
+                        <i class="auth-form__socials-icon fa-brands fa-google-plus-g"></i>
+                        <span class="auth-form__socials-title">
+                            Kết nối với Google
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- login form -->
+            <div class="auth-form" data-auth-form="login" hidden>
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                        <span class="auth-form__switch-btn" data-auth-switch="register">Đăng ký</span>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" id="login-email" name="email" placeholder="email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" id="login-password" name="password" placeholder="mật khẩu của bạn">
+                        </div>
+                    </div>
+                    <div class="auth-form__aside">
+                        <div class="auth-form__help">
+                            <a href="" class="auth-form__help-color auth-form__help-link">Quên mật khẩu</a>
+                            <span class="auth-form__help-separate"></span>
+                            <a href="" class="auth-form__help-link">Cần trợ giúp</a>
+                        </div>
+                    </div>
+                    <p class="auth-form__error" id="login-error" hidden></p>
+                    <div class="auth-form__controls">
+                        <button type="button" class="btn btn-back btn--normal" data-modal-close>TRỞ LẠI</button>
+                        <button type="button" class="btn btn--primary" id="login-submit">ĐĂNG NHẬP</button>
+                    </div>
+                </div>
+                <div class="auth-form__socials">
+                    <a href="" class="auth-form__socials--facbook btn btn--with-icon btn--size-s">
+                        <i class="auth-form__socials-icon fa-brands fa-square-facebook"></i>
+                        <span class="auth-form__socials-title">
+                            Kết nối với Facebook
+                        </span>
+                    </a>
+                    <a href="" class="auth-form__socials--google btn btn--with-icon btn--size-s">
+                        <i class="auth-form__socials-icon fa-brands fa-google-plus-g"></i>
+                        <span class="auth-form__socials-title">
+                            Kết nối với Google
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./asset/js/main.js" defer></script>
+    <script src="./asset/js/contact.js" defer></script>
+</body>
+</html>
+

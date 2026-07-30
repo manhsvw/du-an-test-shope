@@ -1,4 +1,5 @@
 const path = require('node:path');
+const os = require('node:os');
 const express = require('express');
 const session = require('express-session');
 const db = require('./db');
@@ -111,6 +112,16 @@ app.delete('/api/cart/:productId', requireAuth, (req, res) => {
 // ----- Static site -----
 app.use(express.static(path.join(__dirname, '..')));
 
-app.listen(PORT, () => {
+function lanAddresses() {
+  return Object.values(os.networkInterfaces())
+    .flat()
+    .filter((info) => info.family === 'IPv4' && !info.internal)
+    .map((info) => info.address);
+}
+
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Shoppe server dang chay tai http://localhost:${PORT}`);
+  lanAddresses().forEach((ip) => {
+    console.log(`  -> Truy cap tu thiet bi khac trong mang: http://${ip}:${PORT}`);
+  });
 });
