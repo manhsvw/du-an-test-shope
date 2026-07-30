@@ -604,9 +604,8 @@
 
 .header__cart-wrap {
     position: relative;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    height: 100%;
     padding: 0 8px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -725,17 +724,6 @@
     border-style: solid;
     border-color: transparent transparent var(--white-color) transparent;
     cursor: pointer;
-}
-
-/* cầu nối vô hình, giữ trạng thái hover khi rê chuột từ icon giỏ hàng lên khung sản phẩm */
-.header__cart-list::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -20px;
-    height: 20px;
-    background: transparent;
 }
 
 .header__cart-icon {

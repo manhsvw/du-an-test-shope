@@ -20,6 +20,11 @@
     .header__cart-list::after {
         display: none;
     }
+    /* giỏ hàng dùng position: fixed nên khoảng cách tới icon không tự động bằng 0
+       như ở desktop - kéo vùng hover cao hết ô header để không bị hụt khi rê chuột lên */
+    .header__cart-wrap {
+        height: 100%;
+    }
 
     
     .app__container {
