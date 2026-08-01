@@ -131,9 +131,9 @@
             <nav class="breadcrumb">
                 <a href="./index.html" class="breadcrumb__link">Trang chủ</a>
                 <span class="breadcrumb__separator">/</span>
-                <a href="./index.html" class="breadcrumb__link">Phụ kiện máy tính</a>
+                <a href="./index.html" class="breadcrumb__link" id="breadcrumb-category">Danh mục</a>
                 <span class="breadcrumb__separator">/</span>
-                <span class="breadcrumb__link breadcrumb__link--current">Chuột không dây Logitech B175</span>
+                <span class="breadcrumb__link breadcrumb__link--current" id="breadcrumb-product">Đang tải...</span>
             </nav>
 
             <!-- ============ PRODUCT MAIN: GALLERY + INFO ============ -->
@@ -147,54 +147,30 @@
                                     <span>Ảnh sản phẩm (thay bằng ảnh thật)</span>
                                 </div>
                             </div>
-                            <div class="product-detail__thumbs">
-                                <div class="product-detail__thumb product-detail__thumb--active js-product-thumb">
-                                    <i class="fa-regular fa-image"></i>
-                                </div>
-                                <div class="product-detail__thumb js-product-thumb">
-                                    <i class="fa-regular fa-image"></i>
-                                </div>
-                                <div class="product-detail__thumb js-product-thumb">
-                                    <i class="fa-regular fa-image"></i>
-                                </div>
-                                <div class="product-detail__thumb js-product-thumb">
-                                    <i class="fa-regular fa-image"></i>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="col l-7 m-12 c-12">
                         <div class="product-detail__info">
-                            <span class="product-detail__brand">Logitech</span>
-                            <h1 class="product-detail__title">Chuột không dây Logitech B175 USB 2.4Ghz - pin 1 năm, nhỏ gọn, thuận cả 2 tay, phù hợp PC/Laptop</h1>
+                            <span class="product-detail__brand" id="product-brand"></span>
+                            <h1 class="product-detail__title" id="product-title">Đang tải sản phẩm...</h1>
 
                             <div class="product-detail__rating">
-                                <span class="product-detail__rating-score">4.8</span>
-                                <span class="product-detail__stars">
+                                <span class="product-detail__rating-score" id="product-rating-score">5.0</span>
+                                <span class="product-detail__stars" id="product-stars">
                                     <i class="product-detail__star--gold fa-solid fa-star"></i>
                                     <i class="product-detail__star--gold fa-solid fa-star"></i>
                                     <i class="product-detail__star--gold fa-solid fa-star"></i>
                                     <i class="product-detail__star--gold fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
+                                    <i class="product-detail__star--gold fa-solid fa-star"></i>
                                 </span>
-                                <span class="product-detail__rating-count">1.2k Đánh giá</span>
-                                <span class="product-detail__sold">3.4k Đã bán</span>
+                                <span class="product-detail__sold" id="product-sold"></span>
                             </div>
 
                             <div class="product-detail__price">
-                                <span class="product-detail__price-old">299.000đ</span>
-                                <span class="product-detail__price-current">169.000đ</span>
-                                <span class="product-detail__price-discount">-43%</span>
-                            </div>
-
-                            <div class="product-detail__variation">
-                                <span class="product-detail__variation-label">Màu sắc</span>
-                                <div class="product-detail__variation-options">
-                                    <span class="product-detail__variation-option product-detail__variation-option--active js-variation-option">Đen</span>
-                                    <span class="product-detail__variation-option js-variation-option">Trắng</span>
-                                    <span class="product-detail__variation-option js-variation-option">Xanh</span>
-                                </div>
+                                <span class="product-detail__price-old" id="product-price-old" hidden></span>
+                                <span class="product-detail__price-current" id="product-price-current"></span>
+                                <span class="product-detail__price-discount" id="product-price-discount" hidden></span>
                             </div>
 
                             <div class="product-detail__quantity">
@@ -204,15 +180,15 @@
                                     <input type="text" class="product-detail__quantity-input" id="product-quantity-input" value="1">
                                     <button type="button" class="product-detail__quantity-btn" id="product-quantity-increase">+</button>
                                 </div>
-                                <span class="product-detail__quantity-stock">Còn 999 sản phẩm</span>
+                                <span class="product-detail__quantity-stock" id="product-stock-label"></span>
                             </div>
 
                             <div class="product-detail__actions">
-                                <button type="button" class="product-detail__btn-cart btn">
+                                <button type="button" class="product-detail__btn-cart btn" id="product-btn-cart">
                                     <i class="fa-solid fa-cart-plus"></i>
                                     Thêm vào giỏ hàng
                                 </button>
-                                <button type="button" class="product-detail__btn-buy btn btn--primary">Mua ngay</button>
+                                <button type="button" class="product-detail__btn-buy btn btn--primary" id="product-btn-buy">Mua ngay</button>
                             </div>
 
                             <div class="product-detail__guarantees">
@@ -240,7 +216,7 @@
                     <i class="fa-solid fa-shop"></i>
                 </div>
                 <div class="shop-info__body">
-                    <h3 class="shop-info__name">Logitech Official Store</h3>
+                    <h3 class="shop-info__name">A-One Official Store</h3>
                     <span class="shop-info__status"><i class="fa-solid fa-circle"></i>Online 5 phút trước</span>
                 </div>
                 <div class="shop-info__stats">
@@ -273,37 +249,8 @@
             <!-- ============ MÔ TẢ SẢN PHẨM ============ -->
             <div class="product-description">
                 <h2 class="product-description__heading">Chi tiết sản phẩm</h2>
-                <div class="product-description__table">
-                    <div class="product-description__table-row">
-                        <span class="product-description__table-label">Thương hiệu</span>
-                        <span class="product-description__table-value">Logitech</span>
-                    </div>
-                    <div class="product-description__table-row">
-                        <span class="product-description__table-label">Kết nối</span>
-                        <span class="product-description__table-value">Không dây 2.4GHz qua USB receiver</span>
-                    </div>
-                    <div class="product-description__table-row">
-                        <span class="product-description__table-label">Cảm biến</span>
-                        <span class="product-description__table-value">Optical, 1000 DPI</span>
-                    </div>
-                    <div class="product-description__table-row">
-                        <span class="product-description__table-label">Pin</span>
-                        <span class="product-description__table-value">Sử dụng tới 1 năm, có chế độ ngủ tiết kiệm pin</span>
-                    </div>
-                    <div class="product-description__table-row">
-                        <span class="product-description__table-label">Tương thích</span>
-                        <span class="product-description__table-value">Windows, macOS, ChromeOS, Linux</span>
-                    </div>
-                    <div class="product-description__table-row">
-                        <span class="product-description__table-label">Bảo hành</span>
-                        <span class="product-description__table-value">12 tháng chính hãng</span>
-                    </div>
-                </div>
-                <p class="product-description__text">
-                    Chuột không dây Logitech B175 có thiết kế nhỏ gọn, đối xứng hai bên nên thuận tay cho cả người dùng
-                    tay trái và tay phải. Đầu thu USB siêu nhỏ, cắm là dùng ngay không cần cài driver. Phù hợp cho học
-                    sinh, sinh viên, dân văn phòng sử dụng với laptop hoặc PC.
-                </p>
+                <div class="product-description__table" id="product-description-table"></div>
+                <p class="product-description__text" id="product-description-text"></p>
             </div>
 
             <!-- ============ ĐÁNH GIÁ SẢN PHẨM ============ -->
@@ -345,8 +292,8 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                             </div>
-                            <div class="product-reviews__meta">2026-06-20 15:42 | Phân loại: Đen</div>
-                            <p class="product-reviews__text">Chuột dùng mượt, kết nối nhanh, pin trâu. Giao hàng nhanh, đóng gói cẩn thận.</p>
+                            <div class="product-reviews__meta">2026-06-20 15:42</div>
+                            <p class="product-reviews__text">Sản phẩm đúng mô tả, chất lượng tốt. Giao hàng nhanh, đóng gói cẩn thận.</p>
                         </div>
                     </div>
 
@@ -363,8 +310,8 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                             </div>
-                            <div class="product-reviews__meta">2026-06-15 09:10 | Phân loại: Trắng</div>
-                            <p class="product-reviews__text">Nhỏ gọn, cầm vừa tay, dùng cho laptop rất tiện. Đáng tiền.</p>
+                            <div class="product-reviews__meta">2026-06-15 09:10</div>
+                            <p class="product-reviews__text">Hàng chất lượng, giá hợp lý, sẽ ủng hộ tiếp.</p>
                         </div>
                     </div>
                 </div>

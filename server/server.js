@@ -80,16 +80,17 @@ app.get('/api/cart', requireAuth, (req, res) => {
 });
 
 app.post('/api/cart', requireAuth, (req, res) => {
-  const { productId, name, image, price } = req.body || {};
+  const { productId, name, image, price, qty } = req.body || {};
   if (!productId || !name) {
     return res.status(400).json({ error: 'Thiếu thông tin sản phẩm' });
   }
+  const quantity = Number.isInteger(qty) && qty > 0 ? qty : 1;
 
   db.prepare(
     `INSERT INTO cart_items (user_id, product_id, name, image, price, qty)
-     VALUES (?, ?, ?, ?, ?, 1)
-     ON CONFLICT(user_id, product_id) DO UPDATE SET qty = qty + 1`
-  ).run(req.session.userId, productId, name, image || '', price || '');
+     VALUES (?, ?, ?, ?, ?, ?)
+     ON CONFLICT(user_id, product_id) DO UPDATE SET qty = qty + ?`
+  ).run(req.session.userId, productId, name, image || '', price || '', quantity, quantity);
 
   const items = db
     .prepare('SELECT product_id AS productId, name, image, price, qty FROM cart_items WHERE user_id = ?')
@@ -107,6 +108,41 @@ app.delete('/api/cart/:productId', requireAuth, (req, res) => {
     .prepare('SELECT product_id AS productId, name, image, price, qty FROM cart_items WHERE user_id = ?')
     .all(req.session.userId);
   res.json({ items });
+});
+
+// ----- Products (read-only, populated via `npm run import:products`) -----
+// So khớp qua category_key/subcategory_key (đã chuẩn hoá NFC + trim + lowercase) thay vì
+// so văn bản gốc, để lệch hoa/thường hoặc khoảng trắng thừa khi gõ Excel không làm sản
+// phẩm "biến mất" khỏi trang danh mục tương ứng.
+function normalizeKey(value) {
+  return typeof value === 'string' ? value.normalize('NFC').trim().toLowerCase() : value;
+}
+
+app.get('/api/products', (req, res) => {
+  const { category, subcategory } = req.query;
+  const clauses = [];
+  const params = [];
+
+  if (category) {
+    clauses.push('category_key = ?');
+    params.push(normalizeKey(category));
+  }
+  if (subcategory) {
+    clauses.push('subcategory_key = ?');
+    params.push(normalizeKey(subcategory));
+  }
+
+  const where = clauses.length ? `WHERE ${clauses.join(' AND ')}` : '';
+  const products = db.prepare(`SELECT * FROM products ${where} ORDER BY updated_at DESC`).all(...params);
+  res.json({ products });
+});
+
+app.get('/api/products/:id', (req, res) => {
+  const product = db.prepare('SELECT * FROM products WHERE id = ?').get(req.params.id);
+  if (!product) {
+    return res.status(404).json({ error: 'Không tìm thấy sản phẩm' });
+  }
+  res.json({ product });
 });
 
 // ----- Static site -----

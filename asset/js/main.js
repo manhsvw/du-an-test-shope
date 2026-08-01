@@ -287,22 +287,26 @@ async function initSession() {
 })();
 
 // ===== Giỏ hàng =====
+// Dùng event delegation trên document (thay vì gắn trực tiếp vào từng nút) vì các
+// thẻ sản phẩm trong .home-product-item__add-cart giờ được render động từ API sau
+// khi trang đã tải xong, nên không thể querySelectorAll một lần lúc khởi tạo.
 (function initCart() {
-    $$('.home-product-item__add-cart').forEach((btn) => {
-        btn.addEventListener('click', async (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+    document.addEventListener('click', async (e) => {
+        const btn = e.target.closest('.home-product-item__add-cart');
+        if (!btn) return;
 
-            if (!state.user) {
-                openModal('login');
-                return;
-            }
-            try {
-                await addToCart(btn.closest('.home-product-item'));
-            } catch (err) {
-                alert(err.message);
-            }
-        });
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (!state.user) {
+            openModal('login');
+            return;
+        }
+        try {
+            await addToCart(btn.closest('.home-product-item'));
+        } catch (err) {
+            alert(err.message);
+        }
     });
 
     $('#cart-list-item').addEventListener('click', async (e) => {
@@ -319,12 +323,12 @@ async function initSession() {
 })();
 
 // ===== Yêu thích sản phẩm =====
-$$('.home-product-item__like').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        btn.classList.toggle('home-product-item__like--liked');
-    });
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.home-product-item__like');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    btn.classList.toggle('home-product-item__like--liked');
 });
 
 // ===== Bộ lọc "Sắp xếp theo" =====
@@ -392,4 +396,105 @@ $$('.home-product-item__like').forEach((btn) => {
     });
 })();
 
+// ===== Lưới sản phẩm theo danh mục (dữ liệu thật từ /api/products) =====
+function formatVnd(amount) {
+    if (amount === null || amount === undefined || amount === '') return '';
+    return Number(amount).toLocaleString('vi-VN') + 'đ';
+}
+
+function escapeHtml(str) {
+    return String(str ?? '').replace(/[&<>"']/g, (ch) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[ch]));
+}
+
+function buildProductCardHtml(product) {
+    const hasDiscount = product.sale_price != null && product.sale_price !== '' && Number(product.sale_price) < Number(product.price);
+    const currentPrice = hasDiscount ? product.sale_price : product.price;
+    const discountPercent = hasDiscount ? Math.round((1 - product.sale_price / product.price) * 100) : 0;
+    const ratingFilled = Math.max(0, Math.min(5, Math.round(product.rating || 0)));
+    const outOfStock = Number(product.stock_qty || 0) <= 0;
+
+    const stars = Array.from({ length: 5 }, (_, i) =>
+        `<i class="${i < ratingFilled ? 'home-product-item__star--gold' : ''} fa-solid fa-star"></i>`
+    ).join('');
+
+    return `
+        <div class="col l-2-4 m-4 c-6">
+            <a class="home-product-item" href="product-detail.html?id=${encodeURIComponent(product.id)}" data-product-id="${escapeHtml(product.id)}">
+                <div class="home-product-item__img home-product-item__img--placeholder js-product-img" data-image="${escapeHtml(product.image || '')}">
+                    <span class="home-product-item__img-alt">${escapeHtml(product.name)}</span>
+                </div>
+                <h4 class="home-product-item__name">${escapeHtml(product.name)}</h4>
+                <div class="home-product-item__price">
+                    ${hasDiscount ? `<span class="home-product-item__price-old">${formatVnd(product.price)}</span>` : ''}
+                    <span class="home-product-item__price-current">${formatVnd(currentPrice)}</span>
+                </div>
+                <div class="home-product-item__action">
+                    <span class="home-product-item__like">
+                        <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
+                        <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                    </span>
+                    <span class="home-product-item__add-cart"${outOfStock ? ' style="opacity:.4;pointer-events:none"' : ''} title="${outOfStock ? 'Hết hàng' : 'Thêm vào giỏ hàng'}">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </span>
+                    <div class="home-product-item__rating">${stars}</div>
+                    <span class="home-product-item__sold">${outOfStock ? 'Hết hàng' : `${product.sold_count || 0} đã bán`}</span>
+                </div>
+                <div class="home-product-item__origin">
+                    ${product.brand ? `<span class="home-product-item__brand">${escapeHtml(product.brand)}</span>` : ''}
+                    ${product.origin ? `<span class="home-product-item__origin-name">${escapeHtml(product.origin)}</span>` : ''}
+                </div>
+                ${hasDiscount ? `
+                <div class="home-product-item__sale-off">
+                    <span class="home-product-item__sale-off-percent">${discountPercent}%</span>
+                    <span class="home-product-item__sale-off-label">GIẢM</span>
+                </div>` : ''}
+            </a>
+        </div>
+    `;
+}
+
+function hydrateProductImages(container) {
+    $$('.js-product-img', container).forEach((el) => {
+        const file = el.dataset.image;
+        if (!file) return;
+        const url = `asset/img/products/${file}`;
+        const probe = new Image();
+        probe.onload = () => {
+            el.classList.remove('home-product-item__img--placeholder');
+            el.style.backgroundImage = `url(${url})`;
+            el.innerHTML = '';
+        };
+        probe.src = url;
+    });
+}
+
+async function loadProductGrid() {
+    const grid = $('#product-grid');
+    if (!grid) return;
+
+    const category = grid.dataset.category || '';
+    const subcategory = new URLSearchParams(location.search).get('sub') || '';
+
+    const query = new URLSearchParams();
+    if (category) query.set('category', category);
+    if (subcategory) query.set('subcategory', subcategory);
+
+    const emptyMessage = `Chưa có sản phẩm nào${subcategory ? ` trong "${escapeHtml(subcategory)}"` : category ? ` thuộc danh mục "${escapeHtml(category)}"` : ''}.`;
+
+    try {
+        const { products } = await api(`/api/products${query.toString() ? `?${query}` : ''}`);
+        if (products.length === 0) {
+            grid.innerHTML = `<p style="padding:40px 0;text-align:center;color:#767676;width:100%;">${emptyMessage}</p>`;
+            return;
+        }
+        grid.innerHTML = products.map(buildProductCardHtml).join('');
+        hydrateProductImages(grid);
+    } catch (err) {
+        grid.innerHTML = `<p style="padding:40px 0;text-align:center;color:#767676;width:100%;">Không tải được danh sách sản phẩm. Vui lòng thử lại.</p>`;
+    }
+}
+
 initSession();
+loadProductGrid();

@@ -5,9 +5,11 @@
   "description": "Shopee clone tinh voi backend dang ky/dang nhap va gio hang local",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "import:products": "node server/import-products.js"
   },
   "dependencies": {
+    "exceljs": "^4.4.0",
     "express": "^4.19.2",
     "express-session": "^1.18.0"
   }
